@@ -1,19 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ObjectPageComponent } from './object-page/object-page.component';
-import { ObjectFormComponent } from './object-page/object-form/object-form.component';
 import { ObjectCardComponent } from './object-page/object-card/object-card.component';
+import { FormsModule } from '@angular/forms';
+import { ObjectFormComponent } from './object-page/object-form/object-form.component';
+
 
 
 
 @NgModule({
   declarations: [
     ObjectPageComponent,
-    ObjectFormComponent,
-    ObjectCardComponent
+    ObjectCardComponent,
+    ObjectFormComponent    
+    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+    
+  ],
+  exports: [  
+    ObjectPageComponent
   ]
 })
 export class ObjectModule { }
