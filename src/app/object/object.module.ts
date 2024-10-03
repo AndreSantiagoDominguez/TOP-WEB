@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ObjectPageComponent } from './object-page/object-page.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ObjectPageComponent
+  ],
   imports: [
     CommonModule
   ]
