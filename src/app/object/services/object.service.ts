@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ObjectModel } from '../object-model';
 
 @Injectable({
@@ -6,6 +7,8 @@ import { ObjectModel } from '../object-model';
 })
 export class ObjectService {
   private storageKey = 'objects';
+  private objectsSubject = new BehaviorSubject<ObjectModel[]>(this.getObjects());
+  objects$ = this.objectsSubject.asObservable();
 
   constructor() { }
 
@@ -16,25 +19,24 @@ export class ObjectService {
 
   addObject(object: ObjectModel): void {
     const objects = this.getObjects();
-
-    // Generar un ID único 
-    object.id = this.generateId(objects);
-
+    object.id = this.generateId(objects); // Generar un ID único
     objects.push(object);
     localStorage.setItem(this.storageKey, JSON.stringify(objects));
+    this.objectsSubject.next(objects); // Emitir el nuevo estado
   }
-
 
   updateObject(updatedObject: ObjectModel): void {
     let objects = this.getObjects();
     objects = objects.map(obj => obj.id === updatedObject.id ? updatedObject : obj);
     localStorage.setItem(this.storageKey, JSON.stringify(objects));
+    this.objectsSubject.next(objects); // Emitir el estado actualizado
   }
 
   deleteObject(id: number): void {
     let objects = this.getObjects();
     objects = objects.filter(obj => obj.id !== id);
     localStorage.setItem(this.storageKey, JSON.stringify(objects));
+    this.objectsSubject.next(objects); // Emitir el estado después de la eliminación
   }
 
   private generateId(objects: ObjectModel[]): number {

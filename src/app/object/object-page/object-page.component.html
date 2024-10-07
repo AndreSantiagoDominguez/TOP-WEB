@@ -1,12 +1,14 @@
 <div class="container mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-4">Gestión de objetos</h1>
-  
-    <!-- AÑADIR OBJETOS -->
-    <object-form (newObject)="handleNewObject($event)"></object-form>
-  
-    <!-- OBJETOS QUE YA SE AGREGARON -->
-    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <object-card *ngFor="let object of objects" [object]="object" (delete)="handleDeleteObject(object.id)"></object-card>
-    </div>
+  <h1 class="text-3xl font-bold mb-4">Gestión de objetos</h1>
+
+  <object-form (newObject)="handleNewObject($event)"></object-form>
+
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <object-card 
+      *ngFor="let object of objects" 
+      [object]="object" 
+      (delete)="handleDeleteObject(object.id)" 
+      (edit)="handleUpdateObject($event)">
+    </object-card>
   </div>
-  
+</div>

@@ -13,16 +13,21 @@ export class ObjectPageComponent implements OnInit {
   constructor(private objectService: ObjectService) {}
 
   ngOnInit(): void {
-    this.objects = this.objectService.getObjects();
+    // Suscribirse al observable
+    this.objectService.objects$.subscribe(objects => {
+      this.objects = objects;
+    });
   }
 
   handleNewObject(newObject: ObjectModel): void {
     this.objectService.addObject(newObject);
-    this.objects = this.objectService.getObjects(); // Refrescar la lista
+  }
+
+  handleUpdateObject(updatedObject: ObjectModel): void {
+    this.objectService.updateObject(updatedObject);
   }
 
   handleDeleteObject(id: number): void {
     this.objectService.deleteObject(id);
-    this.objects = this.objectService.getObjects(); // Refrescar la lista cuando se elimina
   }
 }

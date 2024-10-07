@@ -4,6 +4,7 @@ import { ObjectPageComponent } from './object-page/object-page.component';
 import { ObjectCardComponent } from './object-page/object-card/object-card.component';
 import { FormsModule } from '@angular/forms';
 import { ObjectFormComponent } from './object-page/object-form/object-form.component';
+import { UserModule } from '../user/user.module';
 
 
 
@@ -17,7 +18,8 @@ import { ObjectFormComponent } from './object-page/object-form/object-form.compo
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    
     
   ],
   exports: [  

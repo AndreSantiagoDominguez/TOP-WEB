@@ -13,7 +13,7 @@ export class ObjectFormComponent {
     rarity: '',
     value: 0,
     videoGameId: 0,
-    userId: 0
+    idUser: 0
   };
 
   @Output() newObject = new EventEmitter<ObjectModel>();
@@ -27,6 +27,6 @@ export class ObjectFormComponent {
       rarity: '',
       value: 0,
       videoGameId: 0,
-      userId: 0};
+      idUser: 0};
   }
 }

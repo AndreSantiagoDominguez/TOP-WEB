@@ -1,0 +1,11 @@
+<div class="user-page-container">
+    <h2 class="text-center text-2xl font-bold mb-4">Bienvenido a la zona de usuario</h2>
+  
+    <app-user-form *ngIf="!isLoggedIn" (authSuccess)="handleAuthSuccess($event)"></app-user-form>
+  
+    <div *ngIf="isLoggedIn">
+      <app-user-profile [user]="userData" (userUpdated)="onUserUpdated($event)"></app-user-profile>
+      <button (click)="logout()" class="btn btn-danger mt-4">Cerrar sesión</button>
+    </div>
+  </div>
+  
