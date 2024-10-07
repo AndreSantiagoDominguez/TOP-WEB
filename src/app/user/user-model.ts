@@ -4,6 +4,6 @@ export interface UserModel {
         name: string;
         email: string;
         password: string; 
-        isLoggedIn?: boolean; // Para verificar si está logueado
+        isLoggedIn?: boolean; 
 
 }
