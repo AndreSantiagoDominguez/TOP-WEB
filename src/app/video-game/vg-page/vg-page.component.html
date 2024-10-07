@@ -1,0 +1,22 @@
+<div class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Lista de Videojuegos</h1>
+
+    <div class="mb-6">
+      <app-vg-form [videoGame]="selectedGame" (gameSaved)="onGameSaved()"></app-vg-form>
+    </div>
+
+    <div *ngIf="videoGames.length === 0" class="text-center">
+      <p>No hay videojuegos disponibles.</p>
+    </div>
+
+    <div *ngFor="let videoGame of videoGames" class="card bg-white p-4 mb-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold">{{ videoGame.name }}</h2>
+      <p><strong>Género:</strong> {{ videoGame.gender }}</p>
+      <p><strong>Desarrollador:</strong> {{ videoGame.developer }}</p>
+
+      <div class="mt-3 flex space-x-4">
+        <button (click)="editGame(videoGame)" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Editar</button>
+        <button (click)="deleteGame(videoGame.id)" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Eliminar</button>
+      </div>
+    </div>
+</div>

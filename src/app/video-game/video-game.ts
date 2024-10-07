@@ -3,7 +3,7 @@ export interface VideoGame {
     name: string;
     gender: string;
     plata_form: string;
-    release_year: 
-    developer:
+    release_year: string;
+    developer: string;
 }
 

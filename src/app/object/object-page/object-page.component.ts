@@ -13,7 +13,6 @@ export class ObjectPageComponent implements OnInit {
   constructor(private objectService: ObjectService) {}
 
   ngOnInit(): void {
-    // Suscribirse al observable
     this.objectService.objects$.subscribe(objects => {
       this.objects = objects;
     });

@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()" class="bg-white p-4 rounded shadow-md w-full max-w-lg">
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="name">Nombre del videojuego:</label>
+        <input type="text" [(ngModel)]="name" name="name" class="w-full px-3 py-2 border rounded" placeholder="Nombre del videojuego" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="gender">Género:</label>
+        <input type="text" [(ngModel)]="gender" name="gender" class="w-full px-3 py-2 border rounded" placeholder="Género del videojuego" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="developer">Desarrollador:</label>
+        <input type="text" [(ngModel)]="developer" name="developer" class="w-full px-3 py-2 border rounded" placeholder="Desarrollador del videojuego" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="platform">Plataforma:</label>
+        <input type="text" [(ngModel)]="platform" name="platform" class="w-full px-3 py-2 border rounded" placeholder="Plataforma del videojuego" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="releaseYear">Año de lanzamiento:</label>
+        <input type="text" [(ngModel)]="releaseYear" name="releaseYear" class="w-full px-3 py-2 border rounded" placeholder="Año de lanzamiento" required>
+    </div>
+
+    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">{{ isEditMode ? 'Actualizar' : 'Crear' }}</button>
+</form>
